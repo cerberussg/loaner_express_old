@@ -61,34 +61,38 @@ class User(Resource):
             return {'message': 'You are not authorized.'}, 403
         if user is None:
             user = UserModel(
-                data['username'], 
+                data['username'].lower(), 
                 data['password'],
-                data['site_location'],
+                data['site_location'].lower(),
                 data['admin'],
                 data['super_user'],
-                identity.username
+                identity.username.lower()
             )
         else:
             # it existed, now we must check a few other things to update a record
-            # identity.username must match username being passed and existing user (username change, if any)
+            # user is admin and no existing user
             if identity.super_user == 1 and existing_user is None:
-                user.username = data['username']
+                user.username = data['username'].lower()
                 user.password = data['password']
-                user.site_location = data['site_location']
+                user.site_location = data['site_location'].lower()
+                user.admin = data['admin']
+                user.super_user = data['super_user']
 
-                user.created_by = identity.username
+                user.created_by = identity.username.lower()
+            # user is updating his record but changing his username
             elif identity.username == username and existing_user is None:
-                user.username = data['username']
+                user.username = data['username'].lower()
                 user.password = data['password']
-                user.site_location = data['site_location']
+                user.site_location = data['site_location'].lower()
                 user.admin = user.admin
                 user.super_user = user.super_user
 
-                user.created_by = identity.username
+                user.created_by = identity.username.lower()
+            # user is updating his user record without a name change
             elif identity.username == existing_user.username:
-                user.username = data['username']
+                user.username = data['username'].lower()
                 user.password = data['password']
-                user.site_location = data['site_location']
+                user.site_location = data['site_location'].lower()
                 if identity.super_user == 1:
                     user.admin = data['admin']
                     user.super_user = data['super_user']
@@ -96,13 +100,29 @@ class User(Resource):
                     user.admin = user.admin
                     user.super_user = user.super_user
                 
-                user.created_by = identity.username
+                user.created_by = identity.username.lower()
             else:
                 return {'message': 'Username is already in use'}, 400
         
         user.save_to_db()
 
         return user.json()
+
+    @jwt_required()
+    # deletes user records
+    def delete(self, username):
+        identity = current_identity
+        if identity.super_user != 1:
+            return {'message': 'You are not authorized.'}, 403
+        
+        if identity.username == username:
+            return {'message': 'You cannot delete yourself.'}, 500
+
+        user = UserModel.find_by_username(username)
+        if user:
+            user.delete_from_db()
+
+        return {'message': 'User deleted.'}
 
 class UserList(Resource):
     @jwt_required()
