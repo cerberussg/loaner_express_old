@@ -5,4 +5,5 @@ from src.db import db
 
 class SiteModel(Model, db.model):
     __tablename__ = 'sites'
+
     
