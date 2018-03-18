@@ -3,7 +3,7 @@
 from .model import Model
 from src.db import db
 
-class SiteModel(Model, db.model):
+class SiteModel(Model, db.Model):
     __tablename__ = 'sites'
 
     name = db.Column(db.String(80))

@@ -38,7 +38,7 @@ class User(Resource):
         identity = current_identity
         if identity == None:
             return {"message": "You are not logged in"}, 400
-        if identity.username != username:
+        if identity.username != username or identity.super_user != 1:
             return {'message': "You are not authorized."}, 403
 
         user = UserModel.find_by_username(username)
