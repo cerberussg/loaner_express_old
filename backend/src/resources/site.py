@@ -51,3 +51,6 @@ class SiteList(Resource):
         site.save_to_db()
 
         return site.json()
+
+class Site(Resource):
+    pass

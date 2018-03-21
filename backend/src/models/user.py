@@ -1,9 +1,25 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
+'''User Model Module
+
+Purpose of the user model is to handle functionality like;
+save to db, delete user from db, find user by name, return user in JSON.
+
+Besides inheriting the base Model class UserModel has these DB fields:
+username, password, site_location, admin, super_user
+
+Author: Scott Goyette
+Date: 03/14/2018
+Email: scott_goyette@comcast.com, sgoyette@kerberosfoundation.com
+'''
 
 from .model import Model
 from src.db import db
 
 class UserModel(Model, db.Model):
+    '''UserModel class 
+    
+    Inherits Model base class and db.Model.
+    '''
     __tablename__ = 'users'
 
     username = db.Column(db.String(80))
