@@ -29,6 +29,7 @@ class UserModel(Model, db.Model):
     super_user = db.Column(db.Boolean)
 
     def __init__(self, username, password, site_location, admin, super_user, created_by):
+        '''Mapping from DB to UserModel object occurs in init.'''
         Model.__init__(self, created_by)
         self.username = username
         self.password = password
@@ -36,26 +37,29 @@ class UserModel(Model, db.Model):
         self.admin = admin
         self.super_user = super_user
 
-    # save_to_db, basic insert and update
+    
     def save_to_db(self):
+        '''Save user record to DB.'''
         db.session.add(self)
         db.session.commit()
 
     def delete_from_db(self):
+        '''Delete user record from DB.'''
         db.session.delete(self)
         db.session.commit()
 
     @classmethod
-    # find a user by username
     def find_by_username(cls, username):
+        '''Returns user if found by name'''
         return cls.query.filter_by(username=username).first()
 
     @classmethod
-    # find user by ID
     def find_by_id(cls, _id):
+        '''Returns user if found by ID.'''
         return cls.query.filter_by(id=_id).first()
 
     def json(self):
+        '''Returns JSON object of user.'''
         return {'username': self.username, 'password': self.password, 
             'site_location': self.site_location, 'admin': self.admin, 
             'super_user': self.super_user}
