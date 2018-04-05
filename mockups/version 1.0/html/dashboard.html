@@ -17,7 +17,7 @@
                 background-color: #E7F8E7;
             }
             h1 {
-                margin-top: 2rem;
+                margin-top: 6rem;
                 margin-bottom: 2rem;
             }
             .theme {
@@ -80,13 +80,16 @@
             .smush {
                 margin-left: -100px;
             }
+            .pag-drop {
+                margin-top: 2rem;
+            }
         </style>
     </head>
     <body>
         <!-- Nav Code Here -->
         <nav class="navbar navbar-expand-lg navbar-dark theme" id="navbar">
             <img class="comcast" src="./Comcast__WHT_765x210_v2.png">
-            <a class="navbar-brand smush" href="dashboard.html">Loaner <i>Express</i>
+            <a class="navbar-brand smush" href="dashboard.html"><i>Loaner Express</i>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -282,7 +285,7 @@
                 </tbody>
             </table>
             <nav aria-label="...">
-                <ul class="pagination">
+                <ul class="pagination pag-drop">
                     <li class="page-item shadow">
                         <a class="page-link text-light" href="#" tabindex="-1">Previous</a>
                     </li>
@@ -308,8 +311,9 @@
                     </div>
                     <div class="modal-body">
                         <form class="form-inline">
-                            <div class="form-group mx-sm-5 px-5">
-                                <label for="assetTag" class="sr-only">Password</label>
+                            <div class="form-group mx-sm-1 px-1">
+                                <label for="assetTag">Scan or Enter Asset Tag</label>
+                                &nbsp;
                                 <input type="text" class="form-control" id="aseetTag" placeholder="#C000000">
                             </div>
                         </form>
