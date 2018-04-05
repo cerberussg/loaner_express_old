@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <style>
+            html {
+                text-rendering: geometricPrecision;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            body {
+                font-family: 'Roboto Slab', sans-serif;
+                background-color: #E7F8E7;
+            }
+            h1 {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+            .theme {
+                background-color: #231205;
+            }
+            .page-link {
+                background-color: #231205;
+                border: none;
+            }
+            .page-link:hover {
+                background-color: #231205;
+            }
+            hr {
+                margin-top: -3px;
+                size: 10px;
+            }
+            .navbar-brand {
+                font-size: 38px;
+            }
+            .navbar {
+                height: 60px;
+            }
+            .btn-same-size {
+                width: 8rem;
+                margin: 0 auto;
+            }
+            thead th {
+                border-top: none;
+                border-bottom: 1px solid #34434B;
+            }
+            td {
+                border-bottom: .5px solid rgba(52,67,75,.1);
+                font-weight: lighter;
+            }
+            .shadow {
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.24);
+            }
+            tbody tr {
+                line-height: 30px;
+                min-height: 30px;
+                height: 30px;
+            }
+            .btn-checkin {
+                background-color: #E7F8E7;
+                color: #231205;
+                border-color: #231205;
+            }
+            .btn-checkout {
+                background-color: #231205;
+                color:  #E7F8E7;
+            }
+            .modal-color {
+                background-color: #E7F8E7;
+                color: #231205;
+            }
+            .comcast {
+                height: 50px;
+                width: 200px;
+            }
+            .smush {
+                margin-left: -100px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Nav Code Here -->
+        <nav class="navbar navbar-expand-lg navbar-dark theme" id="navbar">
+            <img class="comcast" src="./Comcast__WHT_765x210_v2.png">
+            <a class="navbar-brand smush" href="dashboard.html">Loaner <i>Express</i>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cog" aria-hidden="false" data-toggle="tooltip" data-placement="top" title="Settings"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Change Password</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <hr class="shadow" />
+        <!-- Datagrid Code Here -->
+        <div class="container col-lg-10">
+            <div class="text-left">
+                <h1>West Chester</h1>
+            </div>
+            <table class="table table-sm table-responsive-md">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center table-header">Asset Tag</th>
+                        <th scope="col" class="text-center table-header">Service Tag</th>
+                        <th scope="col" class="text-center table-header">Model</th>
+                        <th scope="col" class="text-center table-header">Asset Type</th>
+                        <th scope="col" class="text-center table-header">Status</th>
+                        <th scope="col" class="text-center table-header">User</th>
+                        <th scope="col" class="text-center table-header">Issuer</th>
+                        <th scope="col" class="text-center table-header">Return Date</th>
+                        <th scope="col" class="text-center table-header">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr>
+                        <td>C019161</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock" aria-hidden="true"></i></td>
+                        <td>sbuddh502</td>
+                        <td>Scott Goyette</td>
+                        <td>11/14/2017</td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button type="button" id="C019161" class="btn btn-sm btn-block btn-checkin" data-toggle="modal" data-target="#checkInModal">Check In</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C024528</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock-open" aria-hidden="true"></i></td>
+                        <td>Available</td>
+                        <td>WCHQ</td>
+                        <td></td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-sm btn-block btn-checkout" data-toggle="modal">Check Out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C028838</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock-open" aria-hidden="true"></i></td>
+                        <td>Available</td>
+                        <td>WCHQ</td>
+                        <td></td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-sm btn-block btn-checkout">Check Out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C019961</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock" aria-hidden="true"></i></td>
+                        <td>asmith02</td>
+                        <td>Scott Goyette</td>
+                        <td>11/08/2017</td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-sm btn-block btn-checkin">Check In</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C026943</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock-open" aria-hidden="true"></i></td>
+                        <td>Available</td>
+                        <td>WCHQ</td>
+                        <td></td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-checkout btn-sm btn-block">Check Out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C028943</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock-open" aria-hidden="true"></i></td>
+                        <td>Available</td>
+                        <td>WCHQ</td>
+                        <td></td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-checkout btn-sm btn-block">Check Out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C038943</th>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock-open" aria-hidden="true"></i></td>
+                        <td>Available</td>
+                        <td>WCHQ</td>
+                        <td></td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-checkout btn-sm btn-block">Check Out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C020943</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock-open" aria-hidden="true"></i></td>
+                        <td>Available</td>
+                        <td>WCHQ</td>
+                        <td></td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-checkout btn-sm btn-block">Check Out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C021943</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock-open" aria-hidden="true"></i></td>
+                        <td>Available</td>
+                        <td>WCHQ</td>
+                        <td></td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-checkout btn-sm btn-block">Check Out</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C029943</td>
+                        <td>F610W32</td>
+                        <td>e5440</td>
+                        <td>Laptop</td>
+                        <td><i class="fa fa-lock-open" aria-hidden="true"></i></td>
+                        <td>Available</td>
+                        <td>WCHQ</td>
+                        <td></td>
+                        <td>
+                            <div class="btn-same-size">
+                                <button class="btn btn-checkout btn-sm btn-block">Check Out</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item shadow">
+                        <a class="page-link text-light" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item shadow"><a class="page-link text-light" href="#">1</a></li>
+                    <li class="page-item shadow"><a class="page-link text-light" href="#">2</a></li>
+                    <li class="page-item shadow"><a class="page-link text-light" href="#">3</a></li>
+                    <li class="page-item shadow">
+                        <a class="page-link text-light" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="checkInModal" tabindex="-1" role="dialog" aria-labelledby="checkInModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modal-color">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Check In Asset</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-inline">
+                            <div class="form-group mx-sm-5 px-5">
+                                <label for="assetTag" class="sr-only">Password</label>
+                                <input type="text" class="form-control" id="aseetTag" placeholder="#C000000">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-sm btn-checkin">Check In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+        <script src="js/dashboard.js"></script>
+    </body>
+</html>
