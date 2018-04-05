@@ -1,4 +1,4 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
 
 from werkzeug.security import safe_str_cmp
 from src.models.user import UserModel

@@ -1,6 +1,7 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
 
 import datetime
+
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -44,7 +45,7 @@ api.add_resource(UserRegister, '/register')
 # site endpoints
 api.add_resource(SiteList, '/sites')
 
-if __name__ != '__main__':
+if __name__ == 'src.main':
     from src.db import db
     db.init_app(app)
     app.run(port=5000, debug=True)

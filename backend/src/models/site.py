@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-'''Site Model Module
+'''SiteModel
 
-Purpose of the site model is to handle functionality like;
+Purpose of the SiteModel is to handle functionality like;
 saving to db, delete site out of db, find site by name, return site in JSON.
 
 Besides inheriting the base Model class SiteModel has these DB fields:

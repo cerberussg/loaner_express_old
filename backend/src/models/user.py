@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-'''User Model Module
+'''UserModel
 
-Purpose of the user model is to handle functionality like;
+Purpose of the UserModel is to handle functionality like;
 save to db, delete user from db, find user by name, return user in JSON.
 
 Besides inheriting the base Model class UserModel has these DB fields:

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''Base Model Class for all models
+'''Base Model Class
 
 Handles basic functionality for all models.
 DB connections, a few audit fields for auditing purposes.
