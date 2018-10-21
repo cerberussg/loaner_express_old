@@ -168,7 +168,10 @@ class UserRegister(Resource):
     # adds new user to the database
     def post(self):
         data = UserRegister.parser.parse_args()
-
+        if data['username'] is "" or data['password'] is "":
+            return {"message": "Username or Password field cannot be blank"}, 400
+        elif data['username'] is " " or data['password'] is " ":
+            return {"message": "Username or Password field cannot be blank"}, 400
         if UserModel.find_by_username(data['username']):
             return {"message": "A user with that username already exists"}, 400
         

@@ -22,8 +22,8 @@ class UserModel(Model, db.Model):
     '''
     __tablename__ = 'users'
 
-    username = db.Column(db.String(80))
-    password = db.Column(db.String(80))
+    username = db.Column(db.String(32), index = True)
+    password = db.Column(db.String(128))
     site_location = db.Column(db.String(80))
     admin = db.Column(db.Boolean)
     super_user = db.Column(db.Boolean)
